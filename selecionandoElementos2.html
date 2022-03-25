@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>    
+         // QuerySelector retorna um nodeList, diferente do document.getElements -> retorna um HTMLCollection     
+        document.querySelector('#primeiro').classList.add('destaque');
+
+        const addSelect = selector => 
+            document.querySelectorAll(selector).forEach(e => e.classList.add('destaque'));        
+
+        const removeSelect = selector => 
+            document.querySelectorAll(selector).forEach(e => e.classList.remove('destaque'));
+
+        addSelect('div');
+        removeSelect('*');
+        addSelect('.terceiro.ultimo');
+        removeSelect('*');
+        // Todos que não são #primeiro serão selecionados:
+        addSelect(':not(#primeiro)');
+        removeSelect('*');
+        //Seleciona o primeiro filho:
+        addSelect(':nth-child(1)');
+        removeSelect('*');
+        addSelect('div:nth-of-type(1)');
+        removeSelect('*');
+        addSelect('[wb-attrib]');
+        
+
+    </script>
+</body>
+</html>
